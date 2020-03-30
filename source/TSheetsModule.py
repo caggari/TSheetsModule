@@ -5,9 +5,10 @@ from datetime import datetime
 
 class TSheets:
 
+    token
 
-    def __init__(token):
-    
+    def __init__(inpToken):
+        token=inpToken
 
     def search(base_url, inpList, inpCode, inpToken):
         if inpList is None:
