@@ -7,7 +7,7 @@ class TSheets:
 
     token
 
-    def __init__(inpToken):
+    def __init__(self, inpToken):
         token=inpToken
 
     def search(base_url, inpList, inpCode, inpToken):
