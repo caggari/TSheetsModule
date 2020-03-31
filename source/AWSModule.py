@@ -9,7 +9,7 @@ from datetime import datetime
 
 class AWSModule:
 
-    s3=boto.resource('s3')
+    s3=boto3.resource('s3')
     client= s3.meta.client
     transfer= S3Transfer(client)
 
