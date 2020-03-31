@@ -5,12 +5,10 @@ from datetime import datetime
 
 class TSheets:
 
-    token
-
     def __init__(self, inpToken):
         token=inpToken
 
-    def search(base_url, inpList, inpCode, inpToken):
+    def search(self, base_url, inpList, inpCode, inpToken):
         if inpList is None:
             inpList = []
         jobcodes_base_url = '{base_url}/jobcodes?'.format(base_url=base_url)
@@ -32,7 +30,7 @@ class TSheets:
                 search(base_url, inpList, value['id'], inpToken)
         return inpList
 
-    def formatList(data_df)
+    def formatList(self, data_df):
         data_df.columns
         print(data_df.head())
         data_df['scale_id'] = data_df.index + 1
@@ -42,6 +40,8 @@ class TSheets:
         data_df['last_modified'] = data_df['last_modified'].dt.tz_convert(None)
         data_df['created'] = data_df['created'].dt.tz_convert(None)
         print(data_df.head())
+
+    def createFile(self):
 
 
 
