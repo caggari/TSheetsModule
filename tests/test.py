@@ -1,4 +1,4 @@
-import source/TsheetsModule as TSheets
+import source
 
 tsheets = TSheets()
 
