@@ -6,12 +6,11 @@ import requests
 
 class TSheets:
 
-    token
-
     def __init__(self, bearer_token):
         """
         :param bearer_token: grants access to TSheets
         """
+        print("run init")
         self.token=bearer_token
     
     def _search_(self, base_url, inpList, inpCode):
@@ -21,6 +20,7 @@ class TSheets:
         :param inpList: list of jobCodes
         :param inpCode: parent of existing jobCodes
         """
+        print("run search")
         if inpList is None:
             inpList = []
         jobcodes_base_url = '{base_url}/jobcodes?'.format(base_url=base_url)
@@ -45,6 +45,7 @@ class TSheets:
     def _createDF_(self):
         """generates a new dataframe from tsheets data
         """
+        print("run createDF")
         tsheets_base_url = 'https://rest.tsheets.com/api/v1'
         mydata = self._search_(tsheets_base_url, None, None)
         data_df = pd.DataFrame.from_records(mydata)
@@ -54,6 +55,7 @@ class TSheets:
         """formats the data to Scale Marketing Standards
         :param data_df: unformatted dataframe
         """
+        print("run formatlist")
         print(data_df)
         data_df['scale_id'] = data_df.index + 1
         data_df['last_modified'] = pd.to_datetime(data_df['last_modified'])#, unit='s').dt.tz_convert(None)
@@ -68,6 +70,7 @@ class TSheets:
         :param file_base_path:the path the file will be created at
         :param inpDateTime:the date given to the file location
         """
+        print ("run save csv file")
         unformatted_df=self._createDF_
         data_df=self._formatList_(unformatted_df)
         current_date = current_datetime
